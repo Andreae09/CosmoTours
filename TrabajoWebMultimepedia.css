@@ -55,7 +55,7 @@ input, select, button {
     margin: 10px auto;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px;/**/
 }
 
 /* Botones */
