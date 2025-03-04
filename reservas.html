@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Agencia de Viajes Espaciales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">    <style>
+        /* Diseño general */
+        body {
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// FORMULARIO */
+        /* Contenedor del formulario */
+        .form-box {
+            background-color: #171717;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 170px 100px 70px 0px;
+            color: #fff;
+        }
+
+        /* Título dentro del formulario */
+        .form-box .main-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Subtitulos del formulario */
+        .form-box .form-group label {
+            font-weight: bold;
+            color: #fffcfc;
+            padding: 10px;
+        }
+
+        /* Fondo para rellenar */
+        .form-box .form-control {
+            background-color: #c5c5c5;
+            border-radius: 10px;
+            border: 1px solid #ffffff;
+            padding: 12px;
+            color: #4f4f4f;
+        }
+
+        /* Botón en el formulario */
+        .form-box button.btn-primary {
+            background-color: #148281;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 50px;
+            border: #148281;
+        }
+
+        /* Estilo del botón cuando pasa el ratón (hover) */
+        .form-box button.btn-primary:hover {
+            background-color: #000000;
+        }
+
+        /* Contenedor de la imagen */
+        .image-container {
+            background-color: #000000;
+            border-radius: 8px;
+            padding: 0px;
+            margin: 170px 0px 170px 0px;
+            text-align: center;
+        }
+
+        /* Borde de formulario */
+        select:focus,
+        input:focus {
+            border-color: #148281 !important;
+            box-shadow: 0 0 9px #148281 !important;
+        }
+
+        #confirmModalLabel {
+            color: #000;
+        }
+
+        #confirmModaFondo {
+            background-color: #148281;
+        }
+
+        #VerMasMas {
+            margin: 0px 20px 0px px;
+        }
+
+
+        /* //////////////////////////////////////////////////////////////////////////////////////////////////////////// OFERTAS */
+        /* FONDO DE OFERTAS */
+        #ContenedorNoticiasOfertas {
+            padding: 0px 20px 0px 90px;
+            background: #ffffff;
+        }
+
+        .Titulo {
+            color: #000;
+            text-align: center;
+            padding: 30px;
+            font-size: 48px;
+            /* Tamaño de letra grande */
+        }
+
+        /* Imagen */
+        #ImagenContainerOfertas {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        /* CONTENEDOR PEQUEÑO DE OFERTAS Y LAS FILAS */
+        .ofertas-container {
+            margin: 0;
+            padding: 0;
+            border-radius: 10px;
+            background-color: #ffffff;
+            width: 100%;
+            height: auto;
+            /* Ajusta la altura */
+        }
+
+        /* Diseño de las filas de ofertas */
+        #filaTotal {
+            border-block-color: #148281;
+        }
+
+        #fila1,
+        #fila2 {
+            padding: 5px 15px;
+            /* Reduce el padding */
+            width: 720px;
+            margin: 5px 0px;
+            /* Reduce el margen */
+            background: #ffffff;
+            border: 2px solid #eaeaea;
+            border-radius: 50px;
+            font-size: 14px;
+            /* Ajusta el tamaño de la fuente si es necesario */
+        }
+
+        #MaletaOferta {
+            width: 300px;
+            /* Reduce el tamaño de la imagen */
+            height: 500px;
+        }
+
+        /* ////////////////////////////////////////////////////////////////////////////////////////////////////// ÚLTIMAS NOTICIAS DEL UNIVERSO */
+        /* FONDO CONTENEDOR ENTERO: Últimas Noticias del Universo */
+        .fondoContenedor {
+            background-color: #000000;
+            padding: 100px;
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            color: #ffffff;
+        }
+
+        /* Información de la sección de noticias */
+        .news-section .news-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            color: rgb(255, 255, 255);
+            padding: 0 15px;
+        }
+
+        /* Contenedor de cada noticia */
+        .news-section .list-group-item {
+            margin: 30px 0;
+            border: 1px solid #333;
+            border-radius: 60px;
+            background-color: #151515;
+            width: 80em;
+            transition: height 0.5s ease;
+        }
+
+        /* Contenedor de la imagen y texto de cada noticia */
+        .contenido-noticia {
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            background-color: #151515;
+            width: 77em;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Imagenes */
+        .imagen-noticia {
+            width: 350px;
+            height: 350px;
+            border-radius: 200px;
+            margin: 60px;
+        }
+
+        /* Estilo del texto de la noticia */
+        .texto-noticia {
+            flex: 1;
+            text-align: justify;
+        }
+
+        /* Estilo para los enlaces de "Leer más" */
+        .btn-link {
+            color: #148281;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+
+        /* Estilo para el enlace al pasar el ratón */
+        .btn-link:hover {
+            color: #148281;
+        }
+
+        /* Información de las noticias */
+        #ContenedorNoticias1 {
+            padding: 100px 90px 90px 0px;
+        }
+
+        /* ///////////////////////////////////////////////////////////////////////////////////////////////////////// CONTÁCTANOS */
+        /* Título de la sección de contacto */
+        .titulo-contacto {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-title {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .input-group .form-control {
+            background-color: #ffffff;
+            border: none;
+        }
+
+        .input-group .btn {
+            background-color: #148281;
+            color: white;
+        }
+
+        .section-padding {
+            padding: 40px 0;
+        }
+
+        .contact-info {
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .social-links {
+            text-align: right;
+            color: #ffffff;
+        }
+
+        .newsletter {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .red-text {
+            color: #148281;
+        }
+
+        .red-text:hover {
+            text-decoration: underline;
+        }
+
+        .red-input::placeholder {
+            color: #148281;
+        }
+
+        /* ///////////////////////////////////////////////////////////////////////////////////////////////////////// PIE DE PÁGINA */
+        /* Pie de página */
+        .footer {
+            background-color: #272727;
+            color: rgb(255, 255, 255);
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Contenedores separados para la imagen y el formulario ocupando todo el ancho -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Contenedor de la imagen -->
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="images/Astronauta.png" alt="Imagen representativa" class="img-fluid">
+                </div>
+            </div>
+            <!-- Contenedor del Formulario -->
+            <div class="col-md-6">
+                <div class="form-box">
+                    <h3 class="main-title">Formulario de Reserva</h3>
+                    <form id="reservaForm">
+                        <div class="form-group mb-3">
+                            <label for="destino">Destino</label>
+                            <select class="form-control" id="destino" required onchange="updateTextColor('destino')">
+                                <option>Elige uno de nuestros destinos!</option>
+                                <option>Marte</option>
+                                <option>Júpiter</option>
+                                <option>Saturno</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fecha">Fecha de despegue 🚀</label>
+                            <input type="date" class="form-control" id="fecha" required
+                                onchange="updateTextColor('fecha')">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="pasajeros">Número de Pasajeros</label>
+                            <input type="number" class="form-control" id="pasajeros" min=0 required onchange="updateTextColor('pasajeros')">
+                        </div>
+                        <button class="btn btn-primary" type="button" onclick="validateForm()" data-bs-toggle="modal"
+                            data-bs-target="#confirmModal">Reservar</button>
+
+                    </form>
+                </div>
+                <!-- Ver más -->
+                <a href="#ContenedorNoticiasOfertas" class="btn btn-outline-light" id="VerMasMas">Ver más</a>
+
+            </div>
+        </div>
+
+
+        <!-- Menú donde están las opciones que puse  -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" id="confirmModaFondo">
+                        <h5 class="modal-title" id="confirmModalLabel">¡Reserva Confirmada!</h5>
+                        <!-- Botón de cierre para el modal -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="confirmModalLabel">
+                        <p>¿Qué te gustaría hacer ahora?</p>
+                    </div>
+                    <div class="modal-footer" id="confirmModaFondo">
+                        <a href="panel.html" class="btn btn-outline-light" id="BotonFondo">Ir al Panel</a>
+                        <a href="historial.html" class="btn btn-outline-light" id="BotonFondo">Ver Historial</a>
+                        <a href="#ContenedorNoticiasOfertas">
+                            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal"
+                                id="VerMasMas">Ver más</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Contenedor de Ofertas y Noticias a ancho completo -->
+        <div class="container-fluid offers-news-container" id="ContenedorNoticiasOfertas">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="ofertas-container" style="flex: 1; margin-right: 30px;">
+                    <div class="Titulo">Ofertas de Destinos</div>
+                    <ul class="list-group" id="filaTotal">
+                        <li class="list-group-item">🧑🏼‍🚀 Luna - Paquete completo (Vuelos + Estancia) - $5000</li>
+                        <li class="list-group-item">🧑🏼‍🚀🧑🏼‍🚀 Marte - Estancia en hotel orbital - $3000</li>
+                        <li class="list-group-item">🧑🏼‍🚀 Venus - Sobrevuelo en dirigible (Alojamiento en la
+                            estratósfera) - $7000</li>
+                        <li class="list-group-item">🧑🏼‍🚀🧑🏼‍🚀🧑🏼‍🚀 Júpiter - Observación de la Gran Mancha Roja desde una
+                            estación flotante - $9000</li>
+                        <li class="list-group-item">🧑🏼‍🚀 Neptuno - Viaje en aerostato para ver tormentas gigantes -
+                            $14,000</li>
+                        <li class="list-group-item">🧑🏼‍🚀🧑🏼‍🚀 Saturno - Experiencia de lujo con vistas a los anillos -
+                            $9500</li>
+                        <li class="list-group-item">🧑🏼‍🚀 Plutón - Turismo de aventura en el borde del Sistema Solar -
+                            $6000</li>
+                        <li class="list-group-item">🧑🏼‍🚀🧑🏼‍🚀🧑🏼‍🚀 Marte - Estancia en hotel orbital - $3000</li>
+                    </ul>
+                </div>
+                <div class="image-container" style="flex: 1;" id="ImagenContainerOfertas">
+                    <img src="images/MaletaOferta.png" alt="Imagen representativa" class="img-fluid" id="MaletaOferta">
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Noticias -->
+        <div class="fondoContenedor">
+            <section id="news" class="news-section container-fluid mt-5">
+                <h2 class="text-center mb-4">Últimas Noticias del Universo</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">
+
+                        <div class="noticia">
+                            <div class="contenido-noticia">
+                                <img src="images/NuevoPlaneta.jpeg" alt="Nuevo Exoplaneta" class="imagen-noticia">
+                                <div class="texto-noticia" id="ContenedorNoticias1">
+                                    <p>Descubren Exoplaneta en la Zona Habitable de Gliese 581: Posible Candidato para
+                                        la Colonización Humana</p>
+                                    <button class="btn btn-link" type="button" onclick="toggleNews('news1')">Leer
+                                        más</button>
+                                    <div id="news1" class="news-content">
+                                        <p>Astrónomos han identificado un exoplaneta en la zona habitable de la estrella
+                                            Gliese 581, con condiciones que podrían permitir la existencia de agua
+                                            líquida. Las primeras observaciones sugieren que su atmósfera es rica en
+                                            oxígeno y nitrógeno, lo que lo convierte en un fuerte candidato para futuras
+                                            misiones de exploración. Empresas aeroespaciales ya han mostrado interés en
+                                            enviar sondas para estudiar su viabilidad como posible destino de
+                                            colonización.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="noticia">
+                            <div class="contenido-noticia">
+                                <img src="images/Tren.jpeg" alt="Nuevo Exoplaneta" class="imagen-noticia">
+                                <div class="texto-noticia" id="ContenedorNoticias1">
+                                    <p>Hyperloop espacial: La nueva forma de viajar entre Planetas</p>
+                                    <button class="btn btn-link" type="button" onclick="toggleNews('news2')">Leer
+                                        más</button>
+                                    <div id="news2" class="news-content">
+                                        <p>El revolucionario Hyperloop Galáctico está listo para transformar el
+                                            transporte interplanetario.
+                                            Este tren de levitación magnética, diseñado para moverse a velocidades
+                                            extremas en túneles de
+                                            vacío espacial, permitirá a los viajeros cruzar distancias entre planetas en
+                                            tiempos récord.
+
+                                            La primera fase del proyecto conectará Marte con sus lunas Fobos y Deimos,
+                                            reduciendo los viajes
+                                            de varias horas a solo 15 minutos. En futuras expansiones, se prevé rutas
+                                            entre la Tierra y Marte
+                                            en menos de 48 horas, así como conexiones con las estaciones orbitales de
+                                            Saturno y Neptuno.
+
+                                            Con cabinas de gravedad ajustable, vistas panorámicas del espacio y un
+                                            sistema de navegación
+                                            autónoma de última generación, el Hyperloop Galáctico promete una
+                                            experiencia de viaje rápida,
+                                            segura y futurista.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="noticia">
+                            <div class="contenido-noticia">
+                                <img src="images/NuevaNave.jpeg" alt="Nuevo Exoplaneta" class="imagen-noticia">
+                                <div class="texto-noticia" id="ContenedorNoticias1">
+                                    <p>Nueva nave interestelar alcanza el 20% de la velocidad de la luz</p>
+                                    <button class="btn btn-link" type="button" onclick="toggleNews('news3')">Leer
+                                        más</button>
+                                    <div id="news3" class="news-content">
+                                        <p>La Agencia Espacial Intergaláctica ha realizado con éxito la primera prueba
+                                            de la Nave Estelar
+                                            Aurora, equipada con motores de propulsión de fusión avanzada. Durante la
+                                            prueba, la nave logró
+                                            alcanzar el 20% de la velocidad de la luz, lo que permitiría viajar a
+                                            Próxima Centauri en menos de 25 años.
+                                            Este avance marca un hito en la exploración espacial y acerca la posibilidad
+                                            de misiones tripuladas a
+                                            otros sistemas estelares.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+        </div>
+
+        <div id="contacto1" class="d-flex justify-content-center align-items-center"
+            style="min-height: 50vh; background-color: #000000;">
+            <div class="container section-padding">
+                <h2 class="titulo-contacto">Contáctanos</h2>
+
+                <div class="row">
+                    <!-- Información de contacto en la izquierda -->
+                    <div class="col-md-4 contact-info">
+                        <p><strong>Correo:</strong> contacto@viajeroespacial.com</p>
+                        <p><strong>Teléfono:</strong> +123 456 789</p>
+                        <p><span class="highlight">Reservas y Pagos</span></p>
+                        <p><a href="#" class="red-text">Política de Cancelaciones</a></p>
+                        <p><a href="#" class="red-text">Guía de Destinos Espaciales</a></p>
+                        <p><a href="#" class="red-text">Preguntas y respuestas</a></p>
+                    </div>
+
+                    <!-- Boletín Galáctico en el centro -->
+                    <div class="col-md-4 newsletter text-center">
+                        <h5 class="footer-title">Boletín Galáctico</h5>
+                        <p>Recibe nuestras últimas ofertas, noticias de viajes y descubrimientos espaciales en tu
+                            bandeja de
+                            entrada</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="ej. viajero@galaxytours.space">
+                            <button class="btn" type="button">Suscribirse</button>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales en la derecha -->
+                    <div class="col-md-4 social-links text-md-end text-center">
+                        <h5 class="footer-title">Síguenos en la Red Galáctica</h5>
+                        <p><a href="#" class="red-text">Holobook</a></p>
+                        <p><a href="#" class="red-text">X-Plorer</a></p>
+                        <p><a href="#" class="red-text">Instastellar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 Viajero Espacial. Todos los derechos reservados.</p>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script>
+            function toggleNews(newsId, listItemId) {
+                var newsContent = document.getElementById(newsId);
+                var button = newsContent.previousElementSibling;
+                var listItem = document.getElementById(listItemId);
+                if (newsContent.style.maxHeight === "0px" || newsContent.style.maxHeight === "") {
+                    newsContent.style.maxHeight = newsContent.scrollHeight + "px";
+                    button.textContent = 'Leer menos';
+                    listItem.style.height = (listItem.scrollHeight) + "px";
+                } else {
+                    newsContent.style.maxHeight = "0px";
+                    button.textContent = 'Leer más';
+                    listItem.style.height = "";
+                }
+            }
+            function updateTextColor(elementId) {
+                var element = document.getElementById(elementId);
+                element.style.color = "black";
+            }
+            function validateForm() {
+    var destino = document.getElementById('destino').value;
+    var fecha = document.getElementById('fecha').value;
+    var pasajeros = document.getElementById('pasajeros').value;
+
+    if (!destino) {
+        alert("Por favor, elige un destino.");
+        return false;
+    }
+    if (!fecha) {
+        alert("Por favor, selecciona una fecha de despegue.");
+        return false;
+    }
+    if (!pasajeros || pasajeros <= 0) {
+        alert("El número de pasajeros debe ser al menos 1.");
+        return false;
+    }
+
+    // Si todas las validaciones son correctas, mostrar el modal
+    var confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    confirmModal.show();
+}
+
+            document.getElementById('VerMas').addEventListener('click', function () {
+                var formulario = document.querySelector('.form-box');
+                formulario.style.display = 'none';  // Oculta el formulario
+            });
+
+
+            function guardarReserva() {
+        const destino = document.getElementById("destino").value;
+        const fecha = document.getElementById("fecha").value;
+        const pasajeros = document.getElementById("pasajeros").value;
+
+        // Guardamos la información en localStorage
+        localStorage.setItem('reservaDestino', destino);
+        localStorage.setItem('reservaFecha', fecha);
+        localStorage.setItem('reservaPasajeros', pasajeros);
+
+        // Redirigimos a la página de historial
+        window.location.href = "historial.html";
+        window.location.href = "reservas.html"; 
+
+    }
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+        // Obtener los datos de localStorage
+        const destino = localStorage.getItem("reservaDestino");
+        const fecha = localStorage.getItem("reservaFecha");
+        const pasajeros = localStorage.getItem("reservaPasajeros");
+
+        // Si existen datos, mostrar la reserva
+        if (destino && fecha && pasajeros) {
+            document.getElementById("destinoReserva").textContent = destino;
+            document.getElementById("fechaReserva").textContent = fecha;
+            document.getElementById("pasajerosReserva").textContent = pasajeros;
+        } else {
+            // Si no hay reserva, mostrar mensaje de "No se ha realizado ninguna reserva"
+            document.getElementById("destinoReserva").textContent = "No se ha realizado ninguna reserva aún.";
+            document.getElementById("fechaReserva").textContent = "-";
+            document.getElementById("pasajerosReserva").textContent = "-";
+        }
+    });
+
+    localStorage.removeItem("reservaDestino");
+    localStorage.removeItem("reservaFecha");
+    localStorage.removeItem("reservaPasajeros");
+
+
+    
+        </script>
+        </script>
+</body>
+
+</html>

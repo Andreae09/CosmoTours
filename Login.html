@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regístrate</title>
+    <link rel="stylesheet" href="WebEspacial.css">
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+body {
+    background: url(images/TIerraEspacio.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Tarjetas 3  */
+.container {
+    height: 550px;
+    width: 390px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2),
+                0 0 15px rgba(0, 0, 0, .2),
+                0 0 30px rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* Deslizar recuperar contraseña */
+.form-box{
+    display: flex;
+    justify-content: center;
+}
+/* Tarjeta Ingresar correo y contraseña */
+.form-box .LoginForm{
+    position: absolute;
+   transform: translateX(-450px) rotate(45deg);
+   transition: .5s ease;
+   transition-delay: .4s;
+   padding-top: 100px;
+}
+/* Login */
+.form-box .LoginForm.active{
+    transform: translateX(0px) rotate(0deg);
+    transition-delay: .2s;
+}
+/* Registrar Deslizar*/
+.form-box .RegisterForm{
+    transform: translateX(500px) rotate( 45deg);
+    transition: .5s ease;
+    transition-delay: .2s;
+
+}
+/* Tarjeta registrar */
+.form-box .RegisterForm.active{
+    transform: translateX(0px) rotate(0deg);
+    transition-delay: .4s;
+
+}
+/* Titulo tarjetas */
+.container .form-box h2 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 600;
+}
+/* Contenido escribir alineacion */
+/* .form-box .input-box {
+    margin: 20px 0;
+    width: 100%;
+    border-bottom: 2px solid rgba(255, 255, 255, .4);
+    position: relative;
+} */
+
+.form-box .input-box {
+    margin: 20px 0;
+    width: 100%; /* Cambié esto a 100% para que los inputs ocupen todo el ancho */
+    border-bottom: 2px solid rgba(255, 255, 255, .4);
+    position: relative;
+}
+
+.form-box .input-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;  /* Cambié esto a 100% */
+    height: 40px;
+    padding: 0px 5px; /* Aumenté el padding para hacerlo más fácil de escribir */
+    font-size: 16px;
+}
+/* .form-box .input-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    padding: 0 5px;
+    font-size: 16px;
+} */
+/* Alineacion */
+
+.form-box .input-box label {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    position: absolute;
+    left: 5px;
+    top: 50%;  /* Por defecto, las etiquetas estarán centradas */
+    transform: translateY(-50%);
+    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+/* .form-box .input-box label {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .5s ease;
+} */
+/* Alineacion */
+.form-box .ForgetPasswordForm {
+    transform: translateX(450px) rotate(45deg);
+    transition: 0.5s ease;
+    transition-delay: 0.2s;
+    position: absolute;
+}
+/* Recuperar contraseña alineacion */
+.form-box .ForgetPasswordForm.active {
+    transform: translateX(0px) rotate(0deg);
+    transition-delay: 0.4s;
+    padding-top: 90px;
+    padding-inline: 25px;
+}
+/* Recuperar contraseña alineacion */
+.form-box .input-box input:focus ~ label,
+.form-box .input-box input:valid ~ label {
+    top: -15px; /* Ajusté la distancia para que suba más */
+    font-size: 12px;
+    color: #00d9ff; /* Color del texto cuando se enfoca el input */
+}
+
+/* .input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -10px;
+    font-size: 12px;
+    color: #00d9ff;
+} */
+
+/* Recuperar contraseña alineacion */
+.input-box i{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20ps;
+}
+/* Recuperar contraseña alineacion */
+.forget-section {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: -10px 0 15px;
+    gap: 20px;
+}
+
+.forget-section p {
+    display: flex;
+    align-items: center;
+}
+
+.forget-section p input {
+    accent-color: #11595d;
+    margin: 0 3px;
+}
+
+.forget-section a {
+    text-decoration: none;
+    color: #00d9ff;
+}
+
+.btn {
+    height: 45px;
+    width: 100%;
+    border-radius: 50px;
+    color: #fff;
+    background: #11595d;
+    border: 2px solid #0c4345;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.account-creation {
+    text-align: center;
+    margin: 25px 0 10px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.account-creation span a {
+    text-decoration: none;
+    color: #00d9ff;
+}
+
+.account-creation a:hover {
+    text-decoration: underline;
+}
+/* FONDO */
+.bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .bg-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+/*RESPONSIVE*/
+@media(max-width:768px){
+    .container{
+        height: 500px;
+        width: 300px;
+    }
+    .container .form-box h2 {
+        font-size: 32px;
+
+    }
+    .form-box .input-box {
+        margin: 35px 0;
+        width: 300px;
+    }
+    .form-box .input-box i{
+        font-size: 18px;
+    }
+    .form-box .input-box label {
+        font-size: 14px;
+    }
+    .forget-section p input {
+        accent-color: #11595d;
+        margin: 0 3px;
+        font-size: 2px;
+    }
+    .forget-section {
+        font-size: 13px;
+    }
+    .btn{
+        height: 40px;
+        width: 100px;
+        font-size: 14px;
+    }
+    .account-creation {
+        font-size: 13px;
+    }
+}
+
+@media(max-width:480px){
+    .container{
+        height: 450px;
+        width: 310px;
+    }
+    .container .form-box h2 {
+        font-size: 26px;
+
+    }
+    .form-box .input-box {
+        margin: 30px 0;
+        width: 260px;
+    }
+    .form-box .input-box i{
+        font-size: 16px;
+    }
+    .form-box .input-box label {
+        font-size: 12px;
+    }
+    .forget-section {
+        font-size: 11px;
+    }
+    .btn{
+        height: 35px;
+        width: 100%;
+        font-size: 12px;
+    }
+    .account-creation {
+        font-size: 11px;
+    }
+}
+
+@media(max-width:365px){
+    .container{
+        height: 420px;
+        width: 280px;
+    }
+    .container .form-box h2 {
+        font-size: 24px;
+
+    }
+    .form-box .input-box {
+        margin: 25px 0;
+        width: 220px;
+    }
+    .form-box .input-box i{
+        font-size: 13px;
+    }
+    .form-box .input-box label {
+        font-size: 10px;
+    }
+    .forget-section {
+        font-size: 10px;
+    }
+    .btn{
+        height: 30px;
+        width: 100%;
+        font-size: 11px;
+    }
+    .account-creation {
+        font-size: 10px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-container">
+        <img src="images/Fondoo.jpg" class="img-fluid" alt="Fondo">
+    </div>    <div class="container">
+        <div class="form-box">
+            
+            <form action="#" class="LoginForm active">
+                <h2>Iniciar sesión</h2>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Nombre de usuario</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label>Contraseña</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="forget-section">
+                    <p><input type="checkbox"> Recuérdame</p>
+                    <a href="#" class="ForgetPasswordLink" onclick="showForgetPassword(event)">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" onclick="redirectToPanel(event)">Iniciar sesión</button>
+                <div class="account-creation">
+                    <span>¿No tienes cuenta? <a href="#" class="RegisterLink" onclick="showRegister(event)">Regístrate</a></span>
+                </div>
+            </form>
+
+            <form action="#" class="RegisterForm">
+                <h2>Registrarse</h2>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Nombre</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Apellidos</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label>Correo electrónico</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" required>
+                    <label>Número de teléfono</label>
+                    <i class='bx bxs-phone'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label>Crear contraseña</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label>Confirmar contraseña</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" onclick="redirectToLogin(event)">Crear cuenta</button>
+                <div class="account-creation">
+                    <span>¿Ya tienes una cuenta? <a href="#" class="LoginLink" onclick="showLogin(event)">Iniciar sesión</a></span>
+                </div>
+            </form>
+
+            <form action="#" class="ForgetPasswordForm">
+                <h2>Recuperar contraseña</h2>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label>Correo electrónico</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" required>
+                    <label>Código de verificación</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button id="resetPasswordButton" class="btn">Recuperar</button>
+                <div class="account-creation">
+                    <span>¿Recordaste tu contraseña? <a href="#" class="LoginLink" onclick="showLogin(event)">Iniciar sesión</a></span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    
+    <script>
+        function redirectToPanel(event) {
+            event.preventDefault();
+            window.location.href = 'panel.html';
+        }
+
+        function redirectToLogin(event) {
+            event.preventDefault();
+            alert("Registro exitoso. Ahora puedes iniciar sesión.");
+            showLogin(event);
+        }
+
+        function showLogin(event) {
+            event.preventDefault();
+            document.querySelector('.LoginForm').classList.add('active');
+            document.querySelector('.RegisterForm').classList.remove('active');
+            document.querySelector('.ForgetPasswordForm').classList.remove('active');
+        }
+
+        function showRegister(event) {
+            event.preventDefault();
+            document.querySelector('.RegisterForm').classList.add('active');
+            document.querySelector('.LoginForm').classList.remove('active');
+            document.querySelector('.ForgetPasswordForm').classList.remove('active');
+        }
+
+        function showForgetPassword(event) {
+            event.preventDefault();
+            document.querySelector('.ForgetPasswordForm').classList.add('active');
+            document.querySelector('.LoginForm').classList.remove('active');
+            document.querySelector('.RegisterForm').classList.remove('active');
+        }
+    </script>
+    
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

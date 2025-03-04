@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio - Agencia de Viajes Espaciales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <style>
+body {
+    background-color: #000000;
+    color: white;
+    font-family: 'Arial', sans-serif; /* Tipografía equilibrada */
+    line-height: 1.6; /* Mejora la legibilidad */
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+/* Contenedor de vuelos inicio */
+.custom-header {
+    position: relative;
+    width: 100%;
+    background-image: url('images/Fondoo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 8rem 0; /* Ajuste del espaciado */
+}
+
+#destinosCarousel .carousel-item img {
+    max-width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+#destinosCarousel {
+    background-color: rgb(0, 0, 0);
+    padding: 0;
+    border-radius: 10px;
+    height: 300px;
+    width: 1390px;
+    margin-bottom: 3rem; /* Espacio debajo del carrusel */
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 200px;
+    width: 59px;
+    border-radius: 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+.section-padding {
+    padding: 10rem 0; /* Espaciado ajustado */
+}
+
+.navbar-nav .nav-item {
+    margin-right: 1rem; /* Espaciado entre los elementos del menú */
+}
+.navbar {
+    background-color: #148281 !important; 
+}
+.navbar a.nav-link {
+    color: white !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar a.nav-link:hover {
+    color: rgb(0, 0, 0) !important; /* Puedes cambiar "lightblue" por otro tono de azul si lo prefieres */
+}
+
+.carousel-caption {
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 300px;
+    width: 500px;
+    margin: 0 0 0 420px;
+}
+
+.card {
+    background-color: #161616d9;
+    border: none;
+    margin-bottom: 2rem; /* Espacio debajo de cada tarjeta */
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    color: white;
+    padding: 1rem; /* Agregado relleno dentro de las tarjetas */
+}
+
+.table {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 3rem; /* Espacio debajo de la tabla */
+}
+
+.table th, .table td {
+    background-color: transparent !important;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem; /* Espaciado entre las celdas */
+}
+
+.table th {
+    text-align: center;
+}
+
+.table img {
+    max-width: 80px;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: #148281;
+    border-color: #148281;
+}
+
+.btn-primary:hover {
+    background-color: #148281;
+    border-color: #148281;
+}
+
+.table-dark {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: white;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+.rocket-icon {
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.rating {
+    color: #FFD700;
+}
+
+.testimonials {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.testimonial-item {
+    margin-bottom: 30px;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #555;
+}
+
+.footer {
+    background-color: #272727;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem; /* Espacio antes del pie de página */
+}
+
+.presentation-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    padding: rem 10px; /* Espaciado equilibrado */
+}
+
+.presentation-text {
+    margin-left: 30px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ffffff;
+    max-width: 600px; /* Limitar el ancho del texto */
+    text-align: justify;
+
+}
+
+.presentation-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.d-flex {
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    width: 18rem;
+    flex: 0 0 auto;
+}
+
+.card-body {
+    padding: 1rem;
+}
+.custom-line {
+    border: 0;
+    height: 1px; /* Grosor de la línea */
+    background-color: #00d0ff; /* Color de la línea */
+    width: 90%; /* Ancho de la línea */
+}
+.titulo-destinos {
+    padding: 0px 0px 0px 38%;
+}
+
+.titulo-ofertas {
+    padding: 0px 0px 0px 30%;
+}
+
+.titulo-hoteles {
+    padding: 110px 0px 110px 35%;
+}
+
+.titulo-clientes {
+    padding: 0px 0px 110px 0px;
+}
+
+.titulo-contacto {
+    padding: 0px 0px 110px 40%;
+}
+
+/* Contáctanos */
+        /* Título de la sección de contacto */
+        .titulo-contacto {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 0px 17em 0px 0px;
+            color: #fff;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-title {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .input-group .form-control {
+            background-color: #ffffff;
+            border: none;
+        }
+
+        .input-group .btn {
+            background-color: #148281;
+            color: white;
+        }
+
+        .section-padding {
+            padding: 40px 0;
+        }
+
+        .contact-info {
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .social-links {
+            text-align: right;
+            color: #ffffff;
+        }
+
+        .newsletter {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .red-text {
+            color: #148281;
+        }
+
+        .red-text:hover {
+            text-decoration: underline;
+        }
+
+        .red-input::placeholder {
+            color: #148281;
+        }
+
+
+</style>
+</head>
+<body>
+
+  
+    <!-- Encabezado -->
+    <header class="custom-header">
+        <h1 class="display-4">Vuelos Interplanetarios de la Vía Láctea</h1>
+        <p class="lead">Viaja más allá de las estrellas</p>
+    </header>
+    
+    
+   <!-- Barra de navegación -->
+   <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#destinos">Destinos</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservas.html">Reservas</a></li>
+                <li class="nav-item"><a class="nav-link" href="historial.html">Historial de Viajes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto1">Contacto</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="notificationIcon" role="button" data-bs-toggle="popover"
+                        data-bs-trigger="click" data-bs-placement="bottom"
+                        data-bs-content="<ul><li>¡Nuevas ofertas de vuelos interplanetarios!</li><li>¡Recuerda! Las plazas están limitadas.</li><li>Exploración en Marte: Nuevos descubrimientos.</li></ul>"
+                        data-bs-html="true">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge bg-danger">3</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Sección de Bienvenida -->
+    <section id="home" class="text-center section-padding">
+        <div class="container">
+            <h2 class="mb-4">Bienvenido a tu próxima aventura galáctica</h2>
+            <p class="lead">Descubre los misterios del universo con nuestros exclusivos vuelos interplanetarios.</p>
+            <a href="reservas.html" class="btn btn-primary btn-lg mt-3">Reserva tu viaje</a>
+        </div>
+    </section>
+
+    <hr class="custom-line">
+
+    <!-- Sección de Destinos -->
+<section id="destinos" class="container section-padding">
+    <h2 class="titulo-destinos">Destinos Populares</h2>
+    <div id="destinosCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5 d-flex justify-content-center p-3">
+                        <img src="images/Marte.jpg" class="d-block w-100" alt="Marte">
+                    </div>
+                    <div class="col-md-5 d-flex justify-content-center align-items-center p-3">
+                        <div class="carousel-caption p-3 text-center">
+                            <h3>Marte</h3>
+                            <p>El Planeta Rojo te espera.</p>
+                            <a href="reservas.html" class="btn btn-primary btn-sm">Reservar ya!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5 d-flex justify-content-center p-3">
+                        <img src="images/Jupiter.jpeg" class="d-block w-100" alt="Júpiter">
+                    </div>
+                    <div class="col-md-5 d-flex justify-content-center align-items-center p-3">
+                        <div class="carousel-caption p-3 text-center">
+                            <h3>Júpiter</h3>
+                            <p>Explora el gigante gaseoso.</p>
+                            <a href="reservas.html" class="btn btn-primary btn-sm">Reservar ya!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5 d-flex justify-content-center p-3">
+                        <img src="images/saturno.jpg" class="d-block w-100" alt="Júpiter">
+                    </div>
+                    <div class="col-md-5 d-flex justify-content-center align-items-center p-3">
+                        <div class="carousel-caption p-3 text-center">
+                            <h3>Saturno</h3>
+                            <p>Explora el gigante gaseoso.</p>
+                            <a href="reservas.html" class="btn btn-primary btn-sm">Reservar ya!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5 d-flex justify-content-center p-3">
+                        <img src="images/Neptuno.jpg" class="d-block w-100" alt="Júpiter">
+                    </div>
+                    <div class="col-md-5 d-flex justify-content-center align-items-center p-3">
+                        <div class="carousel-caption p-3 text-center">
+                            <h3>Neptuno</h3>
+                            <p>Explora el gigante gaseoso.</p>
+                            <a href="reservas.html" class="btn btn-primary btn-sm">Reservar ya!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#destinosCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#destinosCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<hr class="custom-line">
+
+<!-- Tabla de Viajes -->
+<section class="container my-5">
+    <h2 class="titulo-ofertas">Ofertas de Viajes Interplanetarios</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th class="text-center"><strong>Destino</strong></th>
+                <th class="text-center"><strong>Duración del Viaje</strong></th>
+                <th class="text-center"><strong>Precio</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+           <!-- Fila para Marte -->
+            <tr>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    Marte
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    6 meses
+                    <i class="fas fa-rocket rocket-icon"></i>
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">€500,000</td>
+            </tr>
+
+            <!-- Fila para Júpiter -->
+            <tr>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    Júpiter
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    3 meses
+                    <i class="fas fa-rocket rocket-icon"></i>
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">€1,200,000</td>
+            </tr>
+
+            <!-- Fila para Neptuno -->
+            <tr>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    Neptuno
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    10 meses
+                    <i class="fas fa-rocket rocket-icon"></i>
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">€10,000,000</td>
+            </tr>
+
+            <!-- Fila para Saturno -->
+            <tr>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    Saturno
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    8 meses
+                    <i class="fas fa-rocket rocket-icon"></i>
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">€8,000,000</td>
+            </tr>
+
+            <!-- Fila para Urano -->
+            <tr>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    Urano
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    11 meses
+                    <i class="fas fa-rocket rocket-icon"></i>
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">€15,000,000</td>
+            </tr>
+
+            <!-- Fila para Venus -->
+            <tr>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    Venus
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">
+                    4 meses
+                    <i class="fas fa-rocket rocket-icon"></i>
+                </td>
+                <td class="text-center" style="font-size: 0.9rem; font-weight: normal;">€350,000</td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+<hr class="custom-line">
+
+<!-- Hoteles -->
+<div class="container mt-5">
+    <h2 class="titulo-hoteles">Hoteles Espaciales</h2>
+    <div class="overflow-hidden">
+        <div class="d-flex gap-3 overflow-x-auto pb-3" style="scroll-snap-type: x mandatory;">
+            
+            <!-- Hotel 1 -->
+            <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel1.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 1">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Marte</h5>
+                    <p class="card-text">Disfruta de una experiencia única en el Planeta Rojo.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 estrellas -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel2.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 2">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Júpiter</h5>
+                    <p class="card-text">Vistas inigualables de la Gran Mancha Roja.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 estrellas -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel3.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 3">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Saturno</h5>
+                    <p class="card-text">Hospédate rodeado de los impresionantes anillos de Saturno.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9734;&#9734; <!-- 3 estrellas -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 4 -->
+            <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel4.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 4">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Neptuno</h5>
+                    <p class="card-text">Relájate en un entorno azul y misterioso.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 estrellas -->
+                    </div>
+                </div>
+            </div>
+             <!-- Hotel 5 -->
+             <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel5.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 4">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Neptuno</h5>
+                    <p class="card-text">Relájate en un entorno azul y misterioso.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 estrellas -->
+                    </div>
+                </div>
+            </div>
+             <!-- Hotel 6 -->
+             <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel6.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 4">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Neptuno</h5>
+                    <p class="card-text">Relájate en un entorno azul y misterioso.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 estrellas -->
+                    </div>
+                </div>
+            </div>
+             <!-- Hotel 7 -->
+             <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel7.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 4">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Neptuno</h5>
+                    <p class="card-text">Relájate en un entorno azul y misterioso.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 estrellas -->
+                    </div>
+                </div>
+            </div>
+             <!-- Hotel  8 -->
+             <div class="card" style="width: 20rem; flex: 0 0 auto; scroll-snap-align: start;">
+                <img src="images/Hotel8.jpg" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Hotel 4">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel en Neptuno</h5>
+                    <p class="card-text">Relájate en un entorno azul y misterioso.</p>
+                    <div class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 estrellas -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr class="custom-line">
+
+<div class="container presentation-section">
+    <!-- Imagen -->
+    <div class="col-md-6 presentation-image">
+        <img src="images/Inicio.jpg" alt="Imagen de Viaje Interplanetario">
+    </div>
+
+    <!-- Texto -->
+    <div class="col-md-6 presentation-text">
+        <p>Nos hemos dedicado desde nuestros inicios a ofrecer experiencias únicas de viajes interplanetarios, combinando innovación, seguridad y pasión por la exploración. Nuestra misión es brindar a los viajeros la oportunidad de descubrir nuevos mundos, disfrutar de estancias en estaciones orbitales de lujo y realizar excursiones a exoplanetas inexplorados. Con un equipo altamente capacitado y tecnología de punta, buscamos hacer realidad los sueños de explorar el cosmos, llevando a nuestros clientes más allá de los límites de la Tierra y hacia el infinito.</p>
+    </div>
+</div>
+
+<hr class="custom-line">
+
+<!-- Experiencia de Clientes -->
+<section class="testimonials section-padding">
+    <h2 class="titulo-clientes">Experiencia de Clientes</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 testimonial-item">
+                <p>"¡Mi viaje a Marte fue increíble! Un destino fuera de este mundo." - Carlos G.</p>
+            </div>
+            <div class="col-md-4 testimonial-item">
+                <p>"La experiencia en Júpiter fue impresionante. ¡Recomiendo altamente este viaje!" - Ana P.</p>
+            </div>
+            <div class="col-md-4 testimonial-item">
+                <p>"Neptuno tiene una belleza única. No me arrepiento de haber elegido este destino." - Juan S.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="custom-line">
+
+<div id="contacto1" class="d-flex justify-content-center align-items-center"
+            style="min-height: 50vh; background-color: #000000;">
+            <div class="container section-padding">
+                <h2 class="titulo-contacto">Contáctanos</h2>
+
+                <div class="row">
+                    <!-- Información de contacto en la izquierda -->
+                    <div class="col-md-4 contact-info">
+                        <p><strong>Correo:</strong> contacto@viajeroespacial.com</p>
+                        <p><strong>Teléfono:</strong> +123 456 789</p>
+                        <p><span class="highlight">Reservas y Pagos</span></p>
+                        <p><a href="#" class="red-text">Política de Cancelaciones</a></p>
+                        <p><a href="#" class="red-text">Guía de Destinos Espaciales</a></p>
+                        <p><a href="#" class="red-text">Preguntas y respuestas</a></p>
+                    </div>
+
+                    <!-- Boletín Galáctico en el centro -->
+                    <div class="col-md-4 newsletter text-center">
+                        <h5 class="footer-title">Boletín Galáctico</h5>
+                        <p>Recibe nuestras últimas ofertas, noticias de viajes y descubrimientos espaciales en tu
+                            bandeja de
+                            entrada</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="ej. viajero@galaxytours.space">
+                            <button class="btn" type="button">Suscribirse</button>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales en la derecha -->
+                    <div class="col-md-4 social-links text-md-end text-center">
+                        <h5 class="footer-title">Síguenos en la Red Galáctica</h5>
+                        <p><a href="#" class="red-text">Holobook</a></p>
+                        <p><a href="#" class="red-text">X-Plorer</a></p>
+                        <p><a href="#" class="red-text">Instastellar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+<!-- Pie de página -->
+<div class="footer">
+    <p>&copy; 2025 Viajero Espacial. Todos los derechos reservados.</p>
+</div>
+
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+                popoverTriggerList.forEach(function (popoverTriggerEl) {
+                    new bootstrap.Popover(popoverTriggerEl);
+                });
+            });
+        </script>
+</body>
+</html>

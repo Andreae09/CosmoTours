@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio - Agencia de Viajes Espaciales</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+        }
+
+        .card {
+            background-color: #333;
+            color: white;
+            border: 1px solid #333;
+        }
+
+        .btn-primary {
+            background-color: #148281;
+            border: none;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 1rem;
+            /* Espaciado entre los elementos del menú */
+        }
+
+        .navbar {
+            background-color: #148281 !important;
+        }
+
+        .navbar a.nav-link {
+            color: white !important;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .navbar a.nav-link:hover {
+            color: #148281 !important;
+            /* Puedes cambiar "lightblue" por otro tono de azul si lo prefieres */
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="panel.html" href="#ContenedorNoticiasOfertas">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="panel.html">Destinos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservas.html">Reservas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="historial.html">Historial de Viajes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto1">Contacto</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="notificationIcon" role="button" data-bs-toggle="popover"
+                                data-bs-trigger="click" data-bs-placement="bottom"
+                                data-bs-content="<ul><li>¡Nuevas ofertas de vuelos interplanetarios!</li><li>¡Recuerda! Las plazas están limitadas.</li><li>Exploración en Marte: Nuevos descubrimientos.</li></ul>"
+                                data-bs-html="true">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge bg-danger">3</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+
+    <!-- Página de Historial de Viajes -->
+    <section id="historial" class="container mt-5">
+        <h2 class="text-center">Historial de Viajes</h2>
+        <div class="card p-4">
+            <h4>Reserva Reciente:</h4>
+            <p><strong>Destino:</strong> <span id="destinoReserva"></span></p>
+            <p><strong>Fecha de Despegue:</strong> <span id="fechaReserva"></span></p>
+            <p><strong>Número de Pasajeros:</strong> <span id="pasajerosReserva"></span></p>
+        </div>
+    </section>
+
+    <section id="historial" class="container mt-5">
+        <h2 class="text-center">Opiniones</h2>
+        <div class="card p-4">
+            <p>Aún no has viajado. ¡Reserva tu primer viaje espacial!</p>
+            <div class="mt-3">
+                <h4>Opiniones de otros usuarios</h4>
+                <ul id="opiniones-lista" class="list-group">
+                    <li class="list-group-item bg-dark text-white">Juan Pérez: "Marte fue increíble, la gravedad baja es
+                        toda una experiencia!"</li>
+                    <li class="list-group-item bg-dark text-white">Ana Gómez: "La Estación Orbital Alpha tiene las
+                        mejores vistas del espacio."</li>
+                    <li class="list-group-item bg-dark text-white">Carlos López: "Kepler-22b es exótico, pero el viaje
+                        fue largo. Vale la pena!"</li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h4>Deja tu Opinión</h4>
+                <form id="form-opinion">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Comentario</label>
+                        <textarea id="comentario" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Opinión</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="contacto1" class="d-flex justify-content-center align-items-center"
+            style="min-height: 50vh; background-color: #000000;">
+            <div class="container section-padding">
+                <h2 class="titulo-contacto">Contáctanos</h2>
+
+                <div class="row">
+                    <!-- Información de contacto en la izquierda -->
+                    <div class="col-md-4 contact-info">
+                        <p><strong>Correo:</strong> contacto@viajeroespacial.com</p>
+                        <p><strong>Teléfono:</strong> +123 456 789</p>
+                        <p><span class="highlight">Reservas y Pagos</span></p>
+                        <p><a href="#" class="red-text">Política de Cancelaciones</a></p>
+                        <p><a href="#" class="red-text">Guía de Destinos Espaciales</a></p>
+                        <p><a hre2f="#" class="red-text">Preguntas y respuestas</a></p>
+                    </div>
+
+                    <!-- Boletín Galáctico en el centro -->
+                    <div class="col-md-4 newsletter text-center">
+                        <h5 class="footer-title">Boletín Galáctico</h5>
+                        <p>Recibe nuestras últimas ofertas, noticias de viajes y descubrimientos espaciales en tu
+                            bandeja de
+                            entrada</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="ej. viajero@galaxytours.space">
+                            <button class="btn" type="button">Suscribirse</button>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales en la derecha -->
+                    <div class="col-md-4 social-links text-md-end text-center">
+                        <h5 class="footer-title">Síguenos en la Red Galáctica</h5>
+                        <p><a href="#" class="red-text">Holobook</a></p>
+                        <p><a href="#" class="red-text">X-Plorer</a></p>
+                        <p><a href="#" class="red-text">Instastellar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('form-opinion').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let nombre = document.getElementById('nombre').value;
+            let comentario = document.getElementById('comentario').value;
+
+            if (nombre && comentario) {
+                let nuevaOpinion = document.createElement('li');
+                nuevaOpinion.classList.add('list-group-item', 'bg-dark', 'text-white');
+                nuevaOpinion.textContent = `${nombre}: "${comentario}"`;
+
+                document.getElementById('opiniones-lista').appendChild(nuevaOpinion);
+
+                document.getElementById('form-opinion').reset();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+        // Obtener los datos de localStorage
+        const destino = localStorage.getItem("reservaDestino");
+        const fecha = localStorage.getItem("reservaFecha");
+        const pasajeros = localStorage.getItem("reservaPasajeros");
+
+        // Si existen datos, mostrar la reserva
+        if (destino && fecha && pasajeros) {
+            document.getElementById("destinoReserva").textContent = destino;
+            document.getElementById("fechaReserva").textContent = fecha;
+            document.getElementById("pasajerosReserva").textContent = pasajeros;
+        } else {
+            // Si no hay reserva, mostrar mensaje de "No se ha realizado ninguna reserva"
+            document.getElementById("destinoReserva").textContent = "No se ha realizado ninguna reserva aún.";
+            document.getElementById("fechaReserva").textContent = "-";
+            document.getElementById("pasajerosReserva").textContent = "-";
+        }
+    });
+    </script>
+</body>
+
+</html>
